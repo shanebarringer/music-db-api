@@ -17,7 +17,7 @@
     (7..14).to_a.sample.times do
       puts "Adding songs for #{album.title}"
       Song.create(
-        name: FFaker::HipsterIpsum.words,
+        name: FFaker::Music.song,
         artist_id: artist.id,
         album_id: album.id
       )
