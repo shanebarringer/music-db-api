@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is intended to be used as a tool for teaching others how to build client-side applications and intearct with an existing API.
 
-Things you may want to cover:
+It will cover all RESTful actions. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To contribute, just fork/clone and submit a PR.
