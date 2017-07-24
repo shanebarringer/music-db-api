@@ -3,14 +3,24 @@ class SongsController < ApplicationController
 
   # GET /songs
   def index
-    @songs = Song.all
+    @songs = params[:album_id].present? ? Song.where(album_id: params[:album_id]) : Song.all
 
     render json: @songs
   end
 
   # GET /songs/1
   def show
-    render json: @song
+    if params[:album_id].present?
+      puts @song.inspect
+      puts params[:album_id]
+      if @song.album_id === params[:album_id]
+        render json: @song
+      else
+        render json: { 'error' => 'That song cannot be found for this album' }, status: :unprocessable_entity
+      end
+    else
+      render json: @song
+    end
   end
 
   # POST /songs
@@ -46,6 +56,6 @@ class SongsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def song_params
-      params.require(:song).permit(:name, :album_id, :artist_id)
+      params.require(:song).permit(:name, :artist_id, :album_id)
     end
 end
