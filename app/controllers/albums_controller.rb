@@ -21,6 +21,17 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def search_by_name
+    album = Album.where(artist_id: params[:artist_id]).find_by_title(params[:album_name])
+
+    if album
+      render json: album
+    else
+      render json: { message: 'That album cannot be found for this artist'}.to_json, status: :unprocessable_entity
+    end
+  end
+
+
   # POST /albums
   # def create
   #   @album = Album.new(album_params)

@@ -13,17 +13,17 @@ class ArtistsController < ApplicationController
     render json: @artist
   end
 
-  # POST /artists
-  # def create
-  #   @artist = Artist.new(artist_params)
-  #
-  #   if @artist.save
-  #     render json: @artist, status: :created, location: @artist
-  #   else
-  #     render json: @artist.errors, status: :unprocessable_entity
-  #   end
-  # end
-  #
+  POST /artists
+  def create
+    @artist = Artist.new(artist_params)
+
+    if @artist.save
+      render json: @artist, status: :created, location: @artist
+    else
+      render json: @artist.errors, status: :unprocessable_entity
+    end
+  end
+  
   # # PATCH/PUT /artists/1
   # def update
   #   if @artist.update(artist_params)
